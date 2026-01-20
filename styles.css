@@ -1,0 +1,248 @@
+/* Bakenovation — styles.css
+   Modern, professional look with the supplied image as background.
+   Put your asset image at: assets/bakenovation-bg.jpg
+   If you have a cleaned (text-free) background, name it assets/bakenovation-bg-clean.jpg
+*/
+
+:root{
+  --accent: #8a2be2; /* purple accent tuned to the supplied purple fabric */
+  --muted: rgba(255,255,255,0.85);
+  --glass: rgba(255,255,255,0.06);
+  --card-bg: rgba(255,255,255,0.04);
+  --max-width: 1200px;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color-scheme: dark;
+}
+
+/* Page background: prefer clean background if present, else use original image */
+body{
+  margin:0;
+  min-height:100vh;
+  line-height:1.45;
+  color: white;
+  background-image: url('assets/bakenovation-bg-clean.jpg'), url('assets/bakenovation-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Dark overlay for legibility */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));
+  pointer-events:none;
+  z-index:0;
+}
+
+.container{
+  width:calc(100% - 48px);
+  max-width: var(--max-width);
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+
+/* Header */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:5;
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 24px;
+  max-width:var(--max-width);
+  margin:0 auto;
+}
+
+/* Logo: cropped portion of the supplied image to show the left 'B' leaf mark */
+.logo{
+  width:88px;
+  height:88px;
+  background-image: url('assets/bakenovation-bg.jpg');
+  background-size: 240%;
+  /* adjust background-position to crop the left portion where the 'B' mark is */
+  background-position: 6% 60%;
+  border-radius:12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6), inset 0 -2px 6px rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  display:inline-block;
+}
+
+/* small logo used in footer */
+.logo.small{
+  width:48px;
+  height:48px;
+  background-size:260%;
+  background-position: 6% 60%;
+  border-radius:8px;
+  margin-bottom: 10px;
+}
+
+/* Navigation */
+.nav{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+.nav-link{
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:500;
+  padding:8px 10px;
+  border-radius:6px;
+}
+.nav-link:hover{ color:white; }
+.nav-cta{
+  background: linear-gradient(90deg,var(--accent), #b36bff);
+  color:white;
+  padding:9px 14px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow: 0 8px 28px rgba(138,43,226,0.22);
+}
+
+/* Hero */
+.hero{
+  min-height:70vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:64px 0;
+}
+.hero-inner{
+  text-align:center;
+  color:var(--muted);
+  padding:40px;
+  border-radius:12px;
+  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.hero-title{
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 48px);
+  margin:0 0 12px;
+  color:white;
+  letter-spacing: 1px;
+}
+.hero-sub{
+  margin:0 0 22px;
+  color: #f3efff;
+  opacity:0.95;
+}
+
+/* Buttons */
+.btn{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:8px;
+  border: none;
+  cursor:pointer;
+  font-weight:600;
+  text-decoration:none;
+}
+.btn-primary{
+  background: linear-gradient(90deg,var(--accent), #b36bff);
+  color:white;
+  box-shadow: 0 8px 22px rgba(138,43,226,0.18);
+}
+.btn-outline{
+  background: transparent;
+  color:var(--muted);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Sections */
+.section{ padding:64px 0; position:relative; z-index:1; }
+.section-title{
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 3.2vw, 30px);
+  color:white;
+  margin:0 0 8px;
+}
+.section-desc{ margin:0 0 24px; color:var(--muted); max-width:760px; }
+
+/* Gallery */
+.gallery-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:22px;
+}
+.card{
+  background: var(--card-bg);
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  display:flex;
+  flex-direction:column;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{ transform: translateY(-8px); box-shadow: 0 18px 40px rgba(0,0,0,0.6); }
+.card-image{
+  height:220px;
+  background-size:cover;
+  background-position:center;
+}
+.card-body{ padding:14px 16px; display:flex; flex-direction:column; gap:8px; flex:1; }
+.card-title{ margin:0; font-weight:600; color:white; }
+.card-price{ margin:0; color:#ffdede; font-weight:600; }
+.card-text{ color:var(--muted); margin:0 0 8px; font-size:14px; }
+.card-actions{ margin-top:auto; display:flex; gap:10px; }
+
+/* Customize placeholder */
+.custom-placeholder{ display:flex; justify-content:center; }
+.custom-box{
+  width:100%;
+  max-width:760px;
+  padding:28px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.04);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  text-align:center;
+}
+
+/* Footer */
+.site-footer{
+  padding:40px 0;
+  border-top:1px solid rgba(255,255,255,0.04);
+  margin-top:30px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:18px;
+}
+.muted{ color:var(--muted); opacity:0.95; font-size:14px; }
+copyright{}
+
+/* Toast */
+.toast{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  background: rgba(0,0,0,0.6);
+  color:white;
+  padding:12px 16px;
+  border-radius:8px;
+  display:none;
+}
+
+/* Responsive tweaks */
+@media (max-width:900px){
+  .header-inner{ padding:12px; gap:12px; }
+  .logo{ width:64px;height:64px; }
+  .footer-grid{ grid-template-columns: 1fr; }
+  .hero{ padding:40px 0; }
+}
