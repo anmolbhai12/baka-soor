@@ -1,1 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bakenovation — Custom & Featured Cakes</title>
+  <meta name="description" content="Bakenovation — Design custom cakes or choose from our featured cakes. Professional bespoke cakes for every occasion." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <!-- Logo: uses a cropped area of the background image so the 'B' leaf mark shows -->
+      <a class="logo" href="#" aria-label="Bakenovation home"></a>
 
+      <nav class="nav">
+        <a class="nav-link" href="#featured">Featured Cakes</a>
+        <a class="nav-link" href="#customize">Design Your Cake</a>
+        <a class="nav-cta" href="#customize">Start Customizing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <div class="hero-inner">
+        <h1 class="hero-title">Bakenovation</h1>
+        <p class="hero-sub">Handcrafted cakes — customize yours or pick from our featured creations.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#customize">Design My Cake</a>
+          <a class="btn btn-outline" href="#featured">Browse Featured Cakes</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured" class="section section-featured">
+      <div class="container">
+        <h2 class="section-title">Featured Cakes — Ready to Order</h2>
+        <p class="section-desc">If you like one of these, click "Choose this cake" to order it as-is, or "Customize" to personalize.</p>
+
+        <div id="gallery" class="gallery-grid">
+          <!-- Example gallery card; duplicate and edit HTML as needed or add more images in assets/gallery/ -->
+          <div class="card" data-id="cake1">
+            <div class="card-image" style="background-image:url('assets/gallery/cake1.jpg');"></div>
+            <div class="card-body">
+              <h3 class="card-title">Raspberry Velvet</h3>
+              <p class="card-price">₹ 1,200 — 1.5 kg</p>
+              <p class="card-text">Elegant red velvet with raspberry compote and cream cheese frosting.</p>
+              <div class="card-actions">
+                <button class="btn btn-choose" data-id="cake1">Choose this cake</button>
+                <button class="btn btn-outline btn-customize" data-id="cake1">Customize</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" data-id="cake2">
+            <div class="card-image" style="background-image:url('assets/gallery/cake2.jpg');"></div>
+            <div class="card-body">
+              <h3 class="card-title">Chocolate Truffle</h3>
+              <p class="card-price">₹ 1,500 — 2 kg</p>
+              <p class="card-text">Rich chocolate sponge, decadent ganache, and chocolate shavings.</p>
+              <div class="card-actions">
+                <button class="btn btn-choose" data-id="cake2">Choose this cake</button>
+                <button class="btn btn-outline btn-customize" data-id="cake2">Customize</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" data-id="cake3">
+            <div class="card-image" style="background-image:url('assets/gallery/cake3.jpg');"></div>
+            <div class="card-body">
+              <h3 class="card-title">Floral Lemon</h3>
+              <p class="card-price">₹ 1,000 — 1 kg</p>
+              <p class="card-text">Citrus sponge with lemon curd and edible flowers.</p>
+              <div class="card-actions">
+                <button class="btn btn-choose" data-id="cake3">Choose this cake</button>
+                <button class="btn btn-outline btn-customize" data-id="cake3">Customize</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add more cards by copying the block above and updating image and content -->
+        </div>
+      </div>
+    </section>
+
+    <section id="customize" class="section section-customize">
+      <div class="container">
+        <h2 class="section-title">Design Your Cake</h2>
+        <p class="section-desc">Use our step-by-step customizer (coming soon) or request a call for a full bespoke design. For now, click "Customize" on any featured cake to start from that base.</p>
+
+        <div class="custom-placeholder">
+          <div class="custom-box">
+            <p class="muted">Customizer placeholder — integration point for the full cake-builder UI.</p>
+            <button class="btn btn-primary" id="book-call">Request a design consultation</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="logo small" aria-hidden="true"></div>
+            <p class="muted">Bakenovation — Handcrafted cakes by expert bakers.</p>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <p class="muted">Email: hello@bakenovation.com<br>Phone: +91 98765 43210</p>
+          </div>
+          <div>
+            <h4>Policy</h4>
+            <p class="muted">Orders, refunds and scheduling info available upon request.</p>
+          </div>
+        </div>
+
+        <p class="copyright">© <span id="year"></span> Bakenovation. All rights reserved.</p>
+      </div>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
